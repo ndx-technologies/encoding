@@ -21,7 +21,8 @@ jobs:
         run: go test -coverprofile=coverage.out -covermode=atomic -cover ./...
 
       - name: fuzz
-        run: go test -list . | grep Fuzz | xargs -P 8 -I {} go test -fuzz {} -fuzztime 15s .
+        run: |
+          go test ./base64 -list . | grep Fuzz | xargs -P 8 -I {} go test -fuzz {} -fuzztime 15s ./base64
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4.1.1
