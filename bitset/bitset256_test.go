@@ -173,7 +173,7 @@ func BenchmarkBitSet256_Set(b *testing.B) {
 func BenchmarkBitSet256_Get(b *testing.B) {
 	var s bitset.BitSet256
 
-	for i := 0; i < bitset.BitSet256Size; i++ {
+	for i := range bitset.BitSet256Size {
 		s.Set(i, rand.IntN(2) == 0)
 	}
 
@@ -187,12 +187,12 @@ func BenchmarkBitSet256_Get(b *testing.B) {
 func BenchmarkBitSet256_Bits(b *testing.B) {
 	var s bitset.BitSet256
 
-	for i := 0; i < bitset.BitSet256Size; i++ {
+	for i := range bitset.BitSet256Size {
 		s.Set(i, rand.IntN(2) == 0)
 	}
 
 	for b.Loop() {
-		for i := 0; i < bitset.BitSet256Size; i++ {
+		for range bitset.BitSet256Size {
 		}
 	}
 }
@@ -200,7 +200,7 @@ func BenchmarkBitSet256_Bits(b *testing.B) {
 func BenchmarkBitSet256_Union(b *testing.B) {
 	var x, y bitset.BitSet256
 
-	for i := 0; i < bitset.BitSet256Size; i++ {
+	for i := range bitset.BitSet256Size {
 		x.Set(i, rand.IntN(2) == 0)
 		y.Set(i, rand.IntN(2) == 0)
 	}
@@ -213,7 +213,7 @@ func BenchmarkBitSet256_Union(b *testing.B) {
 func BenchmarkBitSet256_AppendBinary(b *testing.B) {
 	var s bitset.BitSet256
 
-	for i := 0; i < bitset.BitSet256Size; i++ {
+	for i := range bitset.BitSet256Size {
 		s.Set(i, rand.IntN(2) == 0)
 	}
 
@@ -227,7 +227,7 @@ func BenchmarkBitSet256_AppendBinary(b *testing.B) {
 func BenchmarkBitSet256_MarshalBinary(b *testing.B) {
 	var s bitset.BitSet256
 
-	for i := 0; i < bitset.BitSet256Size; i++ {
+	for i := range bitset.BitSet256Size {
 		s.Set(i, rand.IntN(2) == 0)
 	}
 
@@ -239,7 +239,7 @@ func BenchmarkBitSet256_MarshalBinary(b *testing.B) {
 func BenchmarkBitSet256_UnmarshalBinary(b *testing.B) {
 	var x, y bitset.BitSet256
 
-	for i := 0; i < bitset.BitSet256Size; i++ {
+	for i := range bitset.BitSet256Size {
 		x.Set(i, rand.IntN(2) == 0)
 	}
 

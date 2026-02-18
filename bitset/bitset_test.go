@@ -176,7 +176,7 @@ func BenchmarkBitSet_Get(b *testing.B) {
 		b.Run(strconv.Itoa(n), func(b *testing.B) {
 			var s bitset.BitSet
 
-			for i := 0; i < n; i++ {
+			for i := range n {
 				s.Set(i, rand.IntN(2) == 0)
 			}
 
@@ -194,7 +194,7 @@ func BenchmarkBitSet_Bits(b *testing.B) {
 		b.Run(strconv.Itoa(n), func(b *testing.B) {
 			var s bitset.BitSet
 
-			for i := 0; i < n; i++ {
+			for i := range n {
 				s.Set(i, rand.IntN(2) == 0)
 			}
 
@@ -211,7 +211,7 @@ func BenchmarkBitSet_Union(b *testing.B) {
 		b.Run(strconv.Itoa(n), func(b *testing.B) {
 			var x, y bitset.BitSet
 
-			for i := 0; i < n; i++ {
+			for i := range n {
 				x.Set(i, rand.IntN(2) == 0)
 				y.Set(i, rand.IntN(2) == 0)
 			}
@@ -228,7 +228,7 @@ func BenchmarkBitSet_AppendBinary(b *testing.B) {
 		b.Run(strconv.Itoa(n), func(b *testing.B) {
 			var s bitset.BitSet
 
-			for i := 0; i < n; i++ {
+			for i := range n {
 				s.Set(i, rand.IntN(2) == 0)
 			}
 
@@ -246,7 +246,7 @@ func BenchmarkBitSet_MarshalBinary(b *testing.B) {
 		b.Run(strconv.Itoa(n), func(b *testing.B) {
 			var s bitset.BitSet
 
-			for i := 0; i < n; i++ {
+			for i := range n {
 				s.Set(i, rand.IntN(2) == 0)
 			}
 
@@ -262,7 +262,7 @@ func BenchmarkBitSet_UnmarshalBinary(b *testing.B) {
 		b.Run(strconv.Itoa(n), func(b *testing.B) {
 			var x, y bitset.BitSet
 
-			for i := 0; i < n; i++ {
+			for i := range n {
 				x.Set(i, rand.IntN(2) == 0)
 			}
 

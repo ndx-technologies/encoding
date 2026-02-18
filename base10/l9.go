@@ -50,7 +50,7 @@ func (s *L9) UnmarshalText(b []byte) error {
 		return ErrL9InvalidFormat
 	}
 	s.v = 0
-	for i := 0; i < 9; i++ {
+	for i := range 9 {
 		if b[i] < '0' || b[i] > '9' {
 			return ErrL9InvalidFormat
 		}

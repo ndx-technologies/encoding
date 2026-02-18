@@ -51,7 +51,7 @@ func (s *BitSet256) UnmarshalBinary(data []byte) error {
 	if len(data) != 32 {
 		return errors.New("invalid length")
 	}
-	for i := 0; i < 4; i++ {
+	for i := range 4 {
 		s.words[i] = binary.LittleEndian.Uint64(data[i*8 : (i+1)*8])
 	}
 	return nil
